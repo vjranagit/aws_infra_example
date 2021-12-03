@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+ nginx:
+  image: nginx:alpine
+  expose:
+   - "80"
+   - "443"
+  ports:
+   - "80:80"
+   - "443:443"
+  volumes:
+   - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+   - ./nginx/ssl/dhparam.pem:/etc/nginx/ssl/dhparam.pem
+   - ./nginx/ssl/makstores.tk.crt:/etc/nginx/ssl/makstores.tk.crt
+   - ./nginx/ssl/makstores.tk.key:/etc/nginx/ssl/makstores.tk.key
+  depends_on:
+   - nodejs
+
+ nodejs:
+  image: node:alpine
+  environment:
+   NODE_ENV: production
+  working_dir: /home/app
+  restart: always
+  volumes:
+   - ./nodejs:/home/app
+  command: ["node", "index"]
+
