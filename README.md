@@ -16,6 +16,13 @@ sudo openssl req -x509 -nodes -sha256 -days 365 \
 ```bash
 sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
 ```
+
+
+###### to check health just simply run 
+```bash
+./health.sh <yourpublicIP>
+```
+
 ## Design
 #### Provisioning
 Terreform scripts located at the top level directory provsision the following:
