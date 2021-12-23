@@ -2,7 +2,7 @@
 #### Domain Name
 A free domain name "makstores.tk," created with www.freenom.com and associated to an elastic ip using a null A record, and a 'www' A record.
 
-example site is temporarily available at https://www.makstores.tk
+example site is temporarily available at https://www.domain.tk
 #### SSL
 **Openssl** was used to create .crt, .key, and dhparm.pem files. It should be noted that self signed certificates are not generally accepted as a reliable and will produce a warning that the site is not trusted before  users are able to procede to the site. In practice something like **Certbot** (https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx) provided by **Lets Encrypt** (https://letsencrypt.org/getting-started/) would be more reliable.
 ###### Command for generating domain.tk.crt  domain.tk.key 
