@@ -5,12 +5,12 @@ A free domain name "makstores.tk," created with www.freenom.com and associated t
 example site is temporarily available at https://www.makstores.tk
 #### SSL
 **Openssl** was used to create .crt, .key, and dhparm.pem files. It should be noted that self signed certificates are not generally accepted as a reliable and will produce a warning that the site is not trusted before  users are able to procede to the site. In practice something like **Certbot** (https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx) provided by **Lets Encrypt** (https://letsencrypt.org/getting-started/) would be more reliable.
-###### Command for generating makstores.tk.crt  makstores.tk.key 
+###### Command for generating domain.tk.crt  domain.tk.key 
 ```bash
 sudo openssl req -x509 -nodes -sha256 -days 365 \
 			-newkey rsa:2048 \
-			-keyout ./infra/init/site/nginx/ssl/makstores.tk.key \
-			-out  ./infra/init/site/nginx/ssl/makstores.tk.crt
+			-keyout ./infra/init/site/nginx/ssl/domain.tk.key \
+			-out  ./infra/init/site/nginx/ssl/domain.tk.crt
 ```
 ###### Command for generating dhparam.pem file
 ```bash
