@@ -68,8 +68,8 @@ An alpine Nginx server running in a docker container proxies https requests on p
 			/nginx
 				+ default.conf
 				/ssl
-					+ makstores.tk.crt
-					+ makstores.tk.key
+					+ domain.tk.crt
+					+ domain.tk.key
 					+ dhparam.pem
 			/nodejs
 				+ index.js
