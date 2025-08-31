@@ -1,0 +1,35 @@
+# yamllint disable rule:line-length
+---
+defaults:
+  # label text (case-insensitive) → form field CSS/XPath or "label text" matching
+  label_map:
+    First Name: 'input[name*="firstName" i], input#first-name, input[name="firstName"]'
+    Last Name: 'input[name*="lastName" i], input#last-name, input[name="lastName"]'
+    Name: 'input[name*="name" i]'
+    Email: 'input[type="email"], input[name*="email" i]'
+    Phone: 'input[type="tel"], input[name*="phone" i]'
+    City: 'input[name*="city" i]'
+    State: 'input[name*="state" i], select[name*="state" i]'
+    Country: 'input[name*="country" i], select[name*="country" i]'
+    LinkedIn: 'input[name*="linkedin" i], input[placeholder*="LinkedIn" i]'
+  resume_upload: 'input[type="file"][name*="resume" i], input[type="file"][aria-label*="resume" i], input[type="file"]'
+  cover_letter: 'textarea[name*="cover" i], textarea[aria-label*="cover" i], textarea'
+  submit_button: 'button:has-text("Submit"), button[type="submit"], [role="button"]:has-text("Submit")'
+  next_button: 'button:has-text("Next"), button:has-text("Continue")'
+
+workday:
+  resume_upload: 'input[type="file"][aria-label*="Resume" i]'
+  submit_button: 'button[data-automation-id="bottom-navigation-next-button"], button:has-text("Submit")'
+
+greenhouse:
+  resume_upload: 'input[type="file"][name="applications[resume]"]'
+  cover_letter: 'textarea[name="applications[cover_letter]"]'
+  submit_button: 'input[type="submit"], button:has-text("Submit Application")'
+
+lever:
+  resume_upload: 'input[type="file"][name="resume"]'
+  submit_button: 'button:has-text("Submit application")'
+
+linkedin:
+  resume_upload: 'input[type="file"]'
+  submit_button: 'button:has-text("Submit application"), button:has-text("Next")'

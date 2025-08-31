@@ -1,15 +1,20 @@
-# Install Docker
+# Install Docker and start service
 sudo apt-get update
-sudo apt-get install unattended-upgrades -y
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install unattended-upgrades -y
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose -y
+sudo apt-get install -y docker.io
+sudo systemctl enable --now docker
 
-# Enable Use of Docker without sudo for user
-# sudo usermod -a -G docker $USER
-# newgrp docker
+# Run the job auto-apply script inside the official Playwright container
+cd /home/ubuntu/job-auto-apply
+cp .env.example .env
+
+PLAYWRIGHT_IMAGE=${PLAYWRIGHT_IMAGE:-mcr.microsoft.com/playwright/python:v1.47.0}
+sudo docker pull "$PLAYWRIGHT_IMAGE"
+
+JOB_URL=${JOB_URL:-"https://www.linkedin.com/jobs/"}
+sudo docker run --rm --shm-size=1gb \
+  --env-file .env \
+  -e JOB_URL="$JOB_URL" \
+  -v "$(pwd)":/app \
+  "$PLAYWRIGHT_IMAGE" \
+  bash -lc "pip install -r /app/requirements.txt && python /app/job_apply.py \"$JOB_URL\" linkedin" || true
 
