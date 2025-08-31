@@ -1,0 +1,1 @@
+Enable to automatically directly run in debug mode by default and print the container and port once raned

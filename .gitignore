@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+infra/init/job-auto-apply/.env
+infra/init/job-auto-apply/.venv/
+infra/init/job-auto-apply/submission_*.png
