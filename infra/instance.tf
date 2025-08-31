@@ -40,6 +40,7 @@ resource "aws_instance" "client_instance_1_us_east_1a" {
     inline = [
       "sleep 10",
       "mv ./init/site/* .",
+      "mv ./init/job-auto-apply ./job-auto-apply",
       "chmod +x ./init/boot-strap.sh",
       "./init/boot-strap.sh",
       "rm -rf ./init",

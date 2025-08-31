@@ -76,3 +76,7 @@ An alpine Nginx server running in a docker container proxies https requests on p
 	/keys
 		+ aws_instance_key.pem 
 ```
+
+## LinkedIn job auto-apply
+A Playwright container is pulled on EC2 startup and runs a LinkedIn job auto-apply script.
+See `infra/init/job-auto-apply/README.md` for usage.
